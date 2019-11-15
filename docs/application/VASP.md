@@ -9,20 +9,20 @@ $ tar xvf vasp.5.4.4.tar.bz2
 $ cd vasp.5.4.4
 ```
 - 如果需要 VTST 拓展，使用以下方式安装 (不同的 VTST 和 VASP 版本可能有不同的安装方式)
-  - 从官网下载
+  - 从官网下载 (VTST)
 ```
 $ wget http://theory.cm.utexas.edu/code/vtstcode.tgz
 $ tar xvf vtstcode.tgz
 ```
-  - 备份 VASP 文件（可选）
+  - 备份 VASP 文件（可选）(VTST)
 ```
 $ cp src/chain.F src/chain.F-org
 ```
-  - 替换部分 VASP 文件
+  - 替换部分 VASP 文件 (VTST)
 ```
 $ cp vtstcode-171/* src/
 ```
-  - 修改源文件, 在 `src/main.F` 中将第3146行如下内容：
+  - 修改源文件, 在 `src/main.F` 中将第3146行如下内容 (VTST)：
 ```
 CALL CHAIN_FORCE(T_INFO%NIONS,DYN%POSION,TOTEN,TIFOR, &
      LATT_CUR%A,LATT_CUR%B,IO%IU6)
@@ -33,7 +33,7 @@ CALL CHAIN_FORCE(T_INFO%NIONS,DYN%POSION,TOTEN,TIFOR, &
      TSIF,LATT_CUR%A,LATT_CUR%B,IO%IU6)
 !     LATT_CUR%A,LATT_CUR%B,IO%IU6)
 ```
-在src/.objects中chain.o（第72行）之前添加如下内容：
+在src/.objects中chain.o（第72行）之前添加如下内容 (VTST)：
 ```
 bfgs.o dynmat.o instanton.o lbfgs.o sd.o cg.o dimer.o bbm.o \
 fire.o lanczos.o neb.o qm.o opt.o \
